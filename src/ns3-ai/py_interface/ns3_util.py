@@ -113,7 +113,7 @@ def run_single_ns3(path, pname, setting=None, env=None, show_output=False):
     if not setting:
         cmd = './waf --run "{}"'.format(pname)
     else:
-        cmd = './waf --run "{}{}"'.format(pname, get_setting(setting)[0])
+        cmd = './waf --run "{}{}"'.format(pname, get_setting(setting))
     if show_output:
         proc = subprocess.Popen(
             cmd, shell=True, universal_newlines=True, cwd=path, env=env)

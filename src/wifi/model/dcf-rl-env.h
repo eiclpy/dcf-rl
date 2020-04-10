@@ -25,6 +25,7 @@
 namespace ns3 {
 struct DcfRlEnv
 {
+  int64_t time;
   double power;
   uint32_t idx;
 };

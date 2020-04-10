@@ -22,9 +22,7 @@
 #include "ns3/boolean.h"
 
 namespace ns3 {
-GlobalValue gUseRl =
-  GlobalValue ("UseRl", "UseRl", BooleanValue (false),
-                MakeBooleanChecker ());
+GlobalValue gUseRl = GlobalValue ("UseRl", "UseRl", BooleanValue (false), MakeBooleanChecker ());
 DcfRl::DcfRl (uint16_t id) : Ns3AIRL<DcfRlEnv, DcfRlAct> (id)
 {
   SetCond (2, 0);
@@ -42,6 +40,7 @@ DcfRl::step (Ptr<WifiPhy> phy)
   //         env->power[i] = m_phys[i]->m_interference.m_firstPower;
   //       }
   //   }
+  env->time = Simulator::Now ().GetMicroSeconds ();
   env->power = phy->m_interference.m_firstPower;
   env->idx = phy->GetWifiUid ();
   SetCompleted ();

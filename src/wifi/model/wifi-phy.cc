@@ -2962,7 +2962,7 @@ WifiPhy::GetReceptionStatus (Ptr<const WifiPsdu> psdu, Ptr<Event> event, Time re
       !(m_postReceptionErrorModel && m_postReceptionErrorModel->IsCorrupt (psdu->GetPacket ()->Copy ())))
     {
       NS_LOG_DEBUG ("Reception succeeded: " << psdu);
-      NotifyRxEnd (psdu);
+      NotifyRxEnd (psdu); //Rx OK
       return std::make_pair (true, signalNoise);
     }
   else

@@ -24,7 +24,7 @@ parser.add_argument('--num', type=int, default=4)
 arg = parser.parse_args()
 print(arg)
 sett = dict(UseRl=arg.rl, ueNum=arg.num)
-exp = Experiment(1234, 4096, "dcf-wifi", '../../')
+exp = Experiment(1234, 4096, "ps", '../../')
 rl = Ns3AIRL(1357, DcfRlEnv, DcfRlAct)
 for _ in range(1):
     exp.reset()
@@ -34,7 +34,7 @@ for _ in range(1):
             if not data:
                 break
             # print(data.env.idx, data.env.power)
-            data.act.ccaBusy = c_bool(data.env.idx!=1)
+            data.act.ccaBusy = c_bool(data.env.idx != 1)
             # data.act.ccaBusy = c_bool(0)
     exp.kill()
 del exp

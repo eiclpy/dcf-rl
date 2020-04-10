@@ -310,7 +310,7 @@ ChannelAccessManager::RequestAccess (Ptr<Txop> state, bool isCfPeriod)
     {
       return;
     }
-  if (isCfPeriod)
+  if (isCfPeriod) //false
     {
       state->NotifyAccessRequested ();
       Time delay = (MostRecent ({GetAccessGrantStart (true), Simulator::Now ()}) - Simulator::Now ());
